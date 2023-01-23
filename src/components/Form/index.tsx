@@ -23,6 +23,7 @@ export const Form: FC = () => {
   const recaptchaRef: React.MutableRefObject<ReCAPTCHA | undefined> = useRef<
     ReCAPTCHA | undefined
   >();
+  const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
   const [formValues, handleInputChange, reset] = useForm({
     firstname: "",
@@ -177,7 +178,7 @@ export const Form: FC = () => {
                 </label>
               </div>
               <ReCAPTCHA
-                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                sitekey={siteKey}
                 onChange={handleChangeCaptcha}
                 ref={recaptchaRef as any}
                 size="normal"
