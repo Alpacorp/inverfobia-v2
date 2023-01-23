@@ -7,6 +7,10 @@ import { questions } from "../../db/questions/questions.json";
 import { sumRadioValues } from "../../utils";
 import { Button } from "../Button";
 
+import "../../components/component-styles.css";
+import "../Form/styles.css";
+import "./styles.css";
+
 export interface QuestionProps {
   id?: string | undefined;
   title?: string;
@@ -32,7 +36,7 @@ export const Poll: FC = () => {
   };
 
   return (
-    <section id="form" className="form">
+    <section id="poll" className="form">
       <div className="container title">
         <div className="form-title">
           <p>

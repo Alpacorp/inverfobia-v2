@@ -63,7 +63,6 @@ export const Form: FC = () => {
         alert(
           `${firstname}, tuvimos un error con la validación del captcha ❌ por favor intenta nuevamente o hazlo más tarde.`
         );
-        // window.location.href = "/";
       });
   };
 
@@ -181,7 +180,7 @@ export const Form: FC = () => {
                 sitekey={siteKey}
                 onChange={handleChangeCaptcha}
                 ref={recaptchaRef as any}
-                size="normal"
+                size="compact"
               />
             </div>
             <Button type="button" text="Enviar" />
