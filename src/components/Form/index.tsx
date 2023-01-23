@@ -130,10 +130,9 @@ export const Form: FC = () => {
             <div className="form-title">
               <p>
                 <span>
-                  Regístrate y descubre la mejor forma de combatir los síntomas
-                  de la
-                </span>{" "}
-                <strong>Inverfobia</strong>
+                  Regístrate y haz tu test para descubrir qué tipo de{" "}
+                  <strong>Inverfobia</strong> tienes
+                </span>
               </p>
             </div>
             <div className="data-inputs">
