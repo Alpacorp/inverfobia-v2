@@ -5,7 +5,7 @@
 }
 
 .scroll-down strong {
-  font-size: 13px;
+  font-size: 23px;
   font-weight: 500;
   color: var(--blue-light-color);
   margin-bottom: 10px;
@@ -26,5 +26,15 @@
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .scroll-down {
+    margin-top: 30px;
+  }
+
+  .scroll-down strong {
+    font-size: 18px;
   }
 }

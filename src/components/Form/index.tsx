@@ -14,12 +14,14 @@ import { capitalize } from "../../utils";
 import "../../components/component-styles.css";
 import "./styles.css";
 import ScoreContext from "../../context/ScoreContext";
+import { Loading } from "../Loading";
 
 export const Form: FC = () => {
   const { setDataUser } = useContext(ScoreContext);
 
   const [captchaStatus, setCaptchaStatus] = useState(false);
   const [dataUserSend, setDataUserSend] = useState(false);
+  const [loading, setLoading] = useState(false);
   const recaptchaRef: React.MutableRefObject<ReCAPTCHA | undefined> = useRef<
     ReCAPTCHA | undefined
   >();
@@ -85,7 +87,11 @@ export const Form: FC = () => {
           alert(
             `Hola ${firstname} ${lastname}, tu registro fue exitoso ✅ diligencia la encuesta para curarte de la Inverfobia.`
           );
+        setLoading(true);
         setDataUserSend(true);
+        setTimeout(() => {
+          setLoading(false);
+        }, 3000);
       })
       .catch((err) => {
         console.log("err", err);
@@ -94,7 +100,6 @@ export const Form: FC = () => {
         );
         window.location.href = "/";
       });
-    reset();
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -110,10 +115,13 @@ export const Form: FC = () => {
 
   return (
     <>
+      <Loading open={loading} />
       {dataUserSend ? (
-        <Cta>
-          <ScrollDown />
-        </Cta>
+        <>
+          <Cta>
+            <ScrollDown />
+          </Cta>
+        </>
       ) : (
         <section id="form" className="form">
           <form onSubmit={handleSubmit}>

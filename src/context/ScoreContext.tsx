@@ -15,6 +15,7 @@ export const ScoreProvider = ({ children }: ScoreProviderProps) => {
   const [score, setScore] = useState(0);
   const [dataUser, setDataUser] = useState(false);
   console.log("score context", score);
+  console.log("dataUser Context", dataUser);
   return (
     <ScoreContext.Provider value={{ score, setScore, dataUser, setDataUser }}>
       {children}

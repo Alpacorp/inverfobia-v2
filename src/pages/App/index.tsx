@@ -12,15 +12,17 @@ import "../../global-styles.css";
 export const App: FC = () => {
   const { score, dataUser } = useContext(ScoreContext);
 
+  console.log("dataUser inner", dataUser);
+
   return (
     <>
       {score === 0 ? (
-        <div>
+        <>
           <Hero>
             <Form />
           </Hero>
           {dataUser && <Poll />}
-        </div>
+        </>
       ) : (
         <Target />
       )}
