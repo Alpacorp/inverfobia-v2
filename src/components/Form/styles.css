@@ -3,23 +3,17 @@
 }
 
 .form .form-title {
-  text-align: center;
+  text-align: left;
   font-weight: 600;
   margin: 20px 0;
+  color: var(--blue-color);
+  font-size: 20px;
+  width: 100%;
+  max-width: 400px;
 }
 
-.form .container.title {
-  border: none;
-}
-
-.form .container {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 50px;
-  margin: 80px;
-  justify-content: center;
-  border-left: 3px solid var(--blue-color);
-  border-image: linear-gradient(180deg, rgba(14,16,255,1) 22%, rgba(71,219,248,1) 100%) 1;
+.form-title strong {
+  color: var(--white-color);
 }
 
 .input {
@@ -122,6 +116,7 @@ input::placeholder {
 
   .form .form-title {
     font-size: 14px;
+    padding-left: 5px;
   }
 
   .container .input {
