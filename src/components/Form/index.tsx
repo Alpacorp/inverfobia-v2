@@ -1,6 +1,7 @@
 import { FC, useRef, useState, useContext } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
+import ScoreContext from "../../context/ScoreContext";
 import { apiCreateContact } from "../../apis/createContact";
 
 import { useForm } from "../../hooks/useForm";
@@ -8,13 +9,12 @@ import { useForm } from "../../hooks/useForm";
 import { Button } from "../Button";
 import { Cta } from "../Cta";
 import { ScrollDown } from "../ScrollDown";
+import { Loading } from "../Loading";
 
 import { capitalize } from "../../utils";
 
 import "../../components/component-styles.css";
 import "./styles.css";
-import ScoreContext from "../../context/ScoreContext";
-import { Loading } from "../Loading";
 
 export const Form: FC = () => {
   const { setDataUser } = useContext(ScoreContext);
@@ -28,15 +28,15 @@ export const Form: FC = () => {
   const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
   const [formValues, handleInputChange, reset] = useForm({
+    company: "Inverfobia",
+    email: "",
     firstname: "",
     lastname: "",
     phone: "",
-    email: "",
     website: "https://inverfobia.com",
-    company: "Inverfobia",
   });
 
-  const { firstname, lastname, phone, email } = formValues;
+  const { email, firstname, lastname, phone } = formValues;
 
   const handleChangeCaptcha = () => {
     const recaptchaValue = recaptchaRef?.current?.getValue();
@@ -94,7 +94,6 @@ export const Form: FC = () => {
         alert(
           `${firstname}, tuvimos un error en el registro ❌ por favor intenta nuevamente o hazlo más tarde.`
         );
-        window.location.href = "/";
       });
   };
 
@@ -115,7 +114,10 @@ export const Form: FC = () => {
 
   return (
     <>
-      <Loading open={loading} />
+      <Loading
+        open={loading}
+        text="Estamos validando la información registrada ✅"
+      />
       {dataUserSend ? (
         <>
           <Cta>

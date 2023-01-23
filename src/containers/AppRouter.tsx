@@ -8,11 +8,8 @@ export const AppRouter: FC = () => {
   const maintenance = import.meta.env.VITE_MAINTENANCE || "false";
   const mode = import.meta.env.VITE_MODE || "production";
 
-  console.log("mode", mode, typeof mode);
-  console.log("maintenance", maintenance, typeof maintenance);
-
   return maintenance === "true" ? (
-    <h1>Mantenimiento</h1>
+    <h1>Página en Mantenimiento</h1>
   ) : (
     <Layout>
       <Routes>

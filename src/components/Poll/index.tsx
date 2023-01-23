@@ -13,15 +13,15 @@ import "./styles.css";
 
 export interface QuestionProps {
   id?: string | undefined;
-  title?: string;
   options?: OptionsProps[] | undefined;
+  title?: string;
 }
 
 export interface OptionsProps {
   id?: string | undefined;
+  option?: string;
   options?: string | (string & {}) | undefined | null;
   title?: string;
-  option?: string;
   value?: number;
 }
 
@@ -31,7 +31,6 @@ export const Poll: FC = () => {
   const handleSubmitPoll = (e: React.FormEvent<HTMLFormElement>) => {
     const { total } = sumRadioValues();
     e.preventDefault();
-    console.log("total inner", total);
     setScore(total);
   };
 

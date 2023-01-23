@@ -1,19 +1,19 @@
 .responses {
-  text-align: center;
-  display: grid;
   align-items: center;
+  display: grid;
   height: 100vh;
   margin: 20px 0;
+  text-align: center;
 }
 
 .responses .container {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 80px;
-  margin: 0 80px;
-  justify-content: center;
-  border-left: 3px solid var(--blue-color);
   border-image: linear-gradient(180deg, rgba(14,16,255,1) 22%, rgba(71,219,248,1) 100%) 1;
+  border-left: 3px solid var(--blue-color);
+  display: grid;
+  gap: 80px;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  margin: 0 80px;
   padding: 0 140px;
 }
 
@@ -37,7 +37,7 @@
 
 @media screen and (max-width: 400px) {
   .responses .container {
-    margin: 0 0 50px 0;
     gap: 30px;
+    margin: 0 0 50px 0;
   }
 }

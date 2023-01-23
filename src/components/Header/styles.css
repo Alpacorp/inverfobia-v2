@@ -1,35 +1,35 @@
 .header {
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  transition: all 0.2s ease-in-out;
-  background: rgb(14,16,255);
   background: linear-gradient(90deg, rgba(14,16,255,1) 22%, rgba(71,219,248,1) 100%);
+  background: rgb(14,16,255);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  left: 0;
+  position: sticky;
+  right: 0;
+  top: 0;
+  transition: all 0.2s ease-in-out;
   z-index: 3;
 }
 
 .nav .container {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 20px 50px;
   margin: auto;
+  padding: 20px 50px;
 }
 
 .nav h2 {
-  padding: 0 30px;
-  margin: auto;
   font-family: var(--senary-font);
-  font-weight: 500;
   font-size: 30px;
+  font-weight: 500;
+  margin: auto;
+  padding: 0 30px;
 }
 
 .nav span {
   font-family: var(--senary-font);
-  font-weight: 500;
   font-size: 30px;
+  font-weight: 500;
 }
 
 .nav a {

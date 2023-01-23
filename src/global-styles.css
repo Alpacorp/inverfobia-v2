@@ -41,32 +41,32 @@
 }
 
 * {
-  padding: 0;
-  margin: 0;
   font-family: 'Neue thin';
+  margin: 0;
+  padding: 0;
 }
 
 html {
   background-color: #061923;
-  color: var(--white-color);
   box-sizing: border-box;
+  color: var(--white-color);
   scroll-behavior: smooth;
 }
 
 :root {
-  --white-color: #fff;
   --black-color: #000;
   --blue-color: #07C4EF;
   --blue-light-color: #bae2eb;
   --dark-bg-color: #061923;
   --dark-blue-color: #001D70;
-  --yellow-color: #F2822c;
-  --yellow-light-color: #FED560;
   --gray-light-color: #dddbdb;
   --primary-font: 'Neue Regular';
-  --secondary-font: 'Neue SemiBold';
-  --tertiary-font: 'Neue Bold Italic';
   --quaternary-font: 'Neue Thin';
   --quinary-font: 'Neue Thin Italic';
+  --secondary-font: 'Neue SemiBold';
   --senary-font: 'Neue Extended Regular';
+  --tertiary-font: 'Neue Bold Italic';
+  --white-color: #fff;
+  --yellow-color: #F2822c;
+  --yellow-light-color: #FED560;
 }
