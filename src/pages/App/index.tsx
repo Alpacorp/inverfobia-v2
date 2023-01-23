@@ -1,4 +1,6 @@
-import { FC, useContext } from "react";
+import { FC, useContext, useEffect } from "react";
+
+import { typeDevice } from "../../utils/typeDevice";
 
 import ScoreContext from "../../context/ScoreContext";
 
@@ -10,7 +12,10 @@ import { Poll } from "../../components/Poll";
 import "../../global-styles.css";
 
 export const App: FC = () => {
-  const { score, dataUser } = useContext(ScoreContext);
+  const { score, dataUser, setDetectedDevice } = useContext(ScoreContext);
+  useEffect(() => {
+    setDetectedDevice(typeDevice());
+  }, []);
 
   return (
     <>

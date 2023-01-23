@@ -17,7 +17,7 @@ import "../../components/component-styles.css";
 import "./styles.css";
 
 export const Form: FC = () => {
-  const { setDataUser } = useContext(ScoreContext);
+  const { setDataUser, detectedDevice } = useContext(ScoreContext);
 
   const [captchaStatus, setCaptchaStatus] = useState(false);
   const [dataUserSend, setDataUserSend] = useState(false);
@@ -190,7 +190,7 @@ export const Form: FC = () => {
                 sitekey={siteKey}
                 onChange={handleChangeCaptcha}
                 ref={recaptchaRef as any}
-                size="compact"
+                size={detectedDevice === "mobile" ? "compact" : "normal"}
               />
             </div>
             <Button type="button" text="Enviar" />
