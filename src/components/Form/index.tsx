@@ -100,8 +100,12 @@ export const Form: FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleChangeCaptcha();
-    setDataUser(true);
-    captchaStatus && handleCreateContact(e);
+    if (captchaStatus) {
+      handleCreateContact(e);
+      setDataUser(true);
+    } else {
+      return;
+    }
   };
 
   return (
@@ -115,8 +119,11 @@ export const Form: FC = () => {
           <form onSubmit={handleSubmit}>
             <div className="form-title">
               <p>
-                Registra tus datos para{" "}
-                <span className="highlight-yellow">mostrar tu resultado</span>
+                <span>
+                  Regístrate y descubre la mejor forma de combatir los síntomas
+                  de la
+                </span>{" "}
+                <strong>Inverfobia</strong>
               </p>
             </div>
             <div className="data-inputs">
