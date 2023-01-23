@@ -87,11 +87,7 @@ export const Form: FC = () => {
           alert(
             `Hola ${firstname} ${lastname}, tu registro fue exitoso ✅ diligencia la encuesta para curarte de la Inverfobia.`
           );
-        setLoading(true);
         setDataUserSend(true);
-        setTimeout(() => {
-          setLoading(false);
-        }, 3000);
       })
       .catch((err) => {
         console.log("err", err);
@@ -105,6 +101,10 @@ export const Form: FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleChangeCaptcha();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
     if (captchaStatus) {
       handleCreateContact(e);
       setDataUser(true);
