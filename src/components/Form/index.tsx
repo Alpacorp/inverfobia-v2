@@ -1,35 +1,25 @@
-import { FC, useContext, useRef, useState } from "react";
+import { FC, useRef, useState, useContext } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
-import ScoreContext from "../../context/ScoreContext";
 import { apiCreateContact } from "../../apis/createContact";
 
-import { questions } from "../../db/questions/questions.json";
 import { useForm } from "../../hooks/useForm";
-import { sumRadioValues, capitalize } from "../../utils/";
 
 import { Button } from "../Button";
+import { Cta } from "../Cta";
+import { ScrollDown } from "../ScrollDown";
+
+import { capitalize } from "../../utils";
 
 import "../../components/component-styles.css";
 import "./styles.css";
-
-export interface QuestionProps {
-  id?: string | undefined;
-  title?: string;
-  options?: OptionsProps[] | undefined;
-}
-
-export interface OptionsProps {
-  id?: string | undefined;
-  options?: string | (string & {}) | undefined | null;
-  title?: string;
-  option?: string;
-  value?: number;
-}
+import ScoreContext from "../../context/ScoreContext";
 
 export const Form: FC = () => {
-  const { setScore } = useContext(ScoreContext);
+  const { setDataUser } = useContext(ScoreContext);
+
   const [captchaStatus, setCaptchaStatus] = useState(false);
+  const [dataUserSend, setDataUserSend] = useState(false);
   const recaptchaRef: React.MutableRefObject<ReCAPTCHA | undefined> = useRef<
     ReCAPTCHA | undefined
   >();
@@ -44,7 +34,6 @@ export const Form: FC = () => {
   });
 
   const { firstname, lastname, phone, email } = formValues;
-  const { total } = sumRadioValues();
 
   const handleChangeCaptcha = () => {
     const recaptchaValue = recaptchaRef?.current?.getValue();
@@ -94,8 +83,9 @@ export const Form: FC = () => {
         res.status === 200 &&
           !res.data.message.code &&
           alert(
-            `Hola ${firstname} ${lastname}, tu registro fue exitoso. A continuación, te mostramos tu resultado ✅`
+            `Hola ${firstname} ${lastname}, tu registro fue exitoso ✅ diligencia la encuesta para curarte de la Inverfobia.`
           );
+        setDataUserSend(true);
       })
       .catch((err) => {
         console.log("err", err);
@@ -104,119 +94,92 @@ export const Form: FC = () => {
         );
         window.location.href = "/";
       });
-    sumRadioValues();
-    setScore(total);
     reset();
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleChangeCaptcha();
+    setDataUser(true);
     captchaStatus && handleCreateContact(e);
   };
 
   return (
-    <section id="form" className="form">
-      <div className="container title">
-        <div className="form-title">
-          <p>
-            Completa el siguiente formulario y{" "}
-            <span className="highlight-yellow">descubre la solución</span>{" "}
-            específica para enfrentar sus síntomas
-          </p>
-        </div>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div className="container">
-          {questions.map((question: QuestionProps) => {
-            return (
-              <div className="question-content" key={question.id}>
-                <h4 className="question-title">{question.title}</h4>
-                <div key={question.id}>
-                  {question.options?.map((option: OptionsProps) => {
-                    return (
-                      <div className="question-options" key={option.id}>
-                        <input
-                          type="radio"
-                          id={option.id}
-                          name={question.id}
-                          value={option.value}
-                          required
-                        />
-                        <label htmlFor={option.id}>{option.option}</label>
-                      </div>
-                    );
-                  })}
-                </div>
+    <>
+      {dataUserSend ? (
+        <Cta>
+          <ScrollDown />
+        </Cta>
+      ) : (
+        <section id="form" className="form">
+          <form onSubmit={handleSubmit}>
+            <div className="form-title">
+              <p>
+                Registra tus datos para{" "}
+                <span className="highlight-yellow">mostrar tu resultado</span>
+              </p>
+            </div>
+            <div className="data-inputs">
+              <input
+                className="input"
+                type="text"
+                name="firstname"
+                id="firstname"
+                placeholder="Digita tus nombres"
+                onChange={handleInputChange}
+                value={capitalize(firstname)}
+                required
+              />
+              <input
+                className="input"
+                type="text"
+                name="lastname"
+                id="lastname"
+                placeholder="Digita tus apellidos"
+                onChange={handleInputChange}
+                value={capitalize(lastname)}
+                required
+              />
+              <input
+                className="input"
+                type="number"
+                name="phone"
+                id="phone"
+                onChange={handleInputChange}
+                placeholder="Digita tu teléfono"
+                value={phone}
+                required
+              />
+              <input
+                className="input"
+                type="email"
+                name="email"
+                id="email"
+                onChange={handleInputChange}
+                value={email}
+                placeholder="Digita tu correo electrónico"
+                required
+              />
+              <div className="terms">
+                <input type="checkbox" name="terms" id="terms" required />
+                <label htmlFor="terms">
+                  Acepta la{" "}
+                  <a href="" target="_blank">
+                    política de privacidad
+                  </a>
+                </label>
               </div>
-            );
-          })}
-        </div>
-        <div className="form-title">
-          <p>
-            Registra tus datos para{" "}
-            <span className="highlight-yellow">mostrar tu resultado</span>
-          </p>
-        </div>
-        <div className="container data">
-          <input
-            className="input"
-            type="text"
-            name="firstname"
-            id="firstname"
-            placeholder="Digita tus nombres"
-            onChange={handleInputChange}
-            value={capitalize(firstname)}
-            required
-          />
-          <input
-            className="input"
-            type="text"
-            name="lastname"
-            id="lastname"
-            placeholder="Digita tus apellidos"
-            onChange={handleInputChange}
-            value={capitalize(lastname)}
-            required
-          />
-          <input
-            className="input"
-            type="number"
-            name="phone"
-            id="phone"
-            onChange={handleInputChange}
-            placeholder="Digita tu teléfono"
-            value={phone}
-            required
-          />
-          <input
-            className="input"
-            type="email"
-            name="email"
-            id="email"
-            onChange={handleInputChange}
-            value={email}
-            placeholder="Digita tu correo electrónico"
-            required
-          />
-          <div className="terms">
-            <input type="checkbox" name="terms" id="terms" required />
-            <label htmlFor="terms">
-              Acepta la{" "}
-              <a href="" target="_blank">
-                política de privacidad
-              </a>
-            </label>
-          </div>
-          <ReCAPTCHA
-            sitekey="6LdBcgMkAAAAAG1guFqtvgKW1lOgdFI4QzpJ8TlC"
-            onChange={handleChangeCaptcha}
-            ref={recaptchaRef as any}
-            size="normal"
-          />
-        </div>
-        <Button type="button" text="Enviar" />
-      </form>
-    </section>
+              <ReCAPTCHA
+                sitekey="6LdBcgMkAAAAAG1guFqtvgKW1lOgdFI4QzpJ8TlC"
+                onChange={handleChangeCaptcha}
+                ref={recaptchaRef as any}
+                size="normal"
+              />
+            </div>
+            <Button type="button" text="Enviar" />
+          </form>
+        </section>
+      )}
+    </>
   );
 };
