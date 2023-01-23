@@ -60,9 +60,9 @@ export const Form: FC = () => {
       .catch((err) => {
         console.log("err", err);
         alert(
-          `${firstname}, tuvimos un error en el registro ❌ por favor intenta nuevamente o hazlo más tarde.`
+          `${firstname}, tuvimos un error con la validación del captcha ❌ por favor intenta nuevamente o hazlo más tarde.`
         );
-        window.location.href = "/";
+        // window.location.href = "/";
       });
   };
 
