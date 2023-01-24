@@ -12,7 +12,7 @@ import { Cta } from "../Cta";
 import { ScrollDown } from "../ScrollDown";
 import { Loading } from "../Loading";
 
-import { capitalize } from "../../utils";
+import { capitalize, validatePhone } from "../../utils";
 
 import "../../components/component-styles.css";
 import "./styles.css";
@@ -20,9 +20,9 @@ import "./styles.css";
 export const Form: FC = () => {
   const { setDataUser, detectedDevice } = useContext(ScoreContext);
 
-  const [captchaStatus, setCaptchaStatus] = useState(false);
-  const [dataUserSend, setDataUserSend] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [captchaStatus, setCaptchaStatus] = useState<Boolean>(false);
+  const [dataUserSend, setDataUserSend] = useState<Boolean>(false);
+  const [loading, setLoading] = useState<Boolean>(false);
   const recaptchaRef: React.MutableRefObject<ReCAPTCHA | undefined> = useRef<
     ReCAPTCHA | undefined
   >();
@@ -104,6 +104,12 @@ export const Form: FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleChangeCaptcha();
+
+    if (!validatePhone(phone)) {
+      alert("❌ Por favor ingresa un número de celular válido 📲");
+      return;
+    }
+
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
@@ -142,43 +148,45 @@ export const Form: FC = () => {
             <div className="data-inputs">
               <input
                 className="input"
-                type="text"
-                name="firstname"
                 id="firstname"
-                placeholder="Digita tus nombres"
+                minLength={3}
+                name="firstname"
                 onChange={handleInputChange}
-                value={capitalize(firstname)}
+                placeholder="Digita tu(s) nombre(s)"
                 required
-              />
-              <input
-                className="input"
                 type="text"
-                name="lastname"
+                value={capitalize(firstname)}
+              />
+              <input
+                className="input"
                 id="lastname"
-                placeholder="Digita tus apellidos"
+                minLength={3}
+                name="lastname"
                 onChange={handleInputChange}
+                placeholder="Digita tu(s) apellido(s)"
+                required
+                type="text"
                 value={capitalize(lastname)}
-                required
               />
               <input
                 className="input"
-                type="number"
-                name="phone"
                 id="phone"
+                name="phone"
                 onChange={handleInputChange}
-                placeholder="Digita tu teléfono"
-                value={phone}
+                placeholder="Digita tu número telefónico (ej: 5548153528)"
                 required
+                type="number"
+                value={phone}
               />
               <input
                 className="input"
-                type="email"
-                name="email"
                 id="email"
+                name="email"
                 onChange={handleInputChange}
-                value={email}
                 placeholder="Digita tu correo electrónico"
                 required
+                type="email"
+                value={email}
               />
               <div className="terms">
                 <input type="checkbox" name="terms" id="terms" required />
