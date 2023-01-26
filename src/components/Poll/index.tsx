@@ -37,11 +37,10 @@ export const Poll: FC = () => {
   return (
     <section id="poll" className="form">
       <div className="container title">
-        <div className="form-title">
+        <div className="">
           <p>
-            Completa el siguiente formulario y{" "}
-            <span className="highlight-yellow">descubre la solución</span>{" "}
-            específica para enfrentar sus síntomas
+            Todo listo. Estás a unas preguntas de{" "}
+            <span className="highlight-yellow">encontrar la cura</span>
           </p>
         </div>
       </div>
@@ -71,7 +70,7 @@ export const Poll: FC = () => {
             );
           })}
         </div>
-        <Button type="button" text="Enviar" />
+        <Button type="button" text="ENVIAR" />
       </form>
     </section>
   );

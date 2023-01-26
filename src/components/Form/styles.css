@@ -9,16 +9,16 @@
   gap: 50px;
   grid-template-columns: auto auto;
   justify-content: center;
-  margin: 80px;
+  margin: 40px 80px;
 }
 
 .form .form-title {
-  color: var(--blue-color);
+  color: var(--blue-light-color);
   font-size: 20px;
   font-weight: 600;
   margin: 20px 0;
   max-width: 400px;
-  text-align: left;
+  text-align: center;
   width: 100%;
 }
 
@@ -42,7 +42,7 @@ input::placeholder {
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   justify-content: space-around;
   margin: 5px 0;
 }
@@ -56,6 +56,8 @@ input::placeholder {
   max-width: 300px;
   padding: 10px;
   width: 100%;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .form .container .button {
@@ -64,6 +66,7 @@ input::placeholder {
 
 .form .terms label {
   margin-left: 5px;
+  font-weight: bold;
 }
 
 .form .terms a {
@@ -72,12 +75,12 @@ input::placeholder {
 }
 
 .form .terms a:hover {
-  font-weight: bold;
   text-decoration: underline;
 }
 
 .question-content {
   box-sizing: border-box;
+  font-size: 20px;
 }
 
 .question-title {
@@ -86,7 +89,6 @@ input::placeholder {
 
 .question-options {
   box-sizing: content-box;
-  padding: 2px 0;
 }
 
 .question-options > * {
@@ -94,7 +96,7 @@ input::placeholder {
 }
 
 .question-options label {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .question-options:hover > label {
@@ -115,7 +117,7 @@ input::placeholder {
 }
 @media screen and (max-width: 400px) {
   .form {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .form .container {
@@ -125,12 +127,17 @@ input::placeholder {
   }
 
   .form .form-title {
-    font-size: 14px;
-    padding-left: 5px;
+    font-size: 15px;
+    margin-top: 40px;
+    max-width: 300px;
   }
 
   .container .input {
     width: 90%;
+  }
+
+  .container .question-content {
+    font-size: 15px;
   }
 }
 

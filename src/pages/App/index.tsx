@@ -17,18 +17,17 @@ export const App: FC = () => {
     setDetectedDevice(typeDevice());
   }, []);
 
-  return (
-    <>
-      {score === 0 ? (
-        <>
-          <Hero>
-            <Form />
-          </Hero>
-          {dataUser && <Poll />}
-        </>
-      ) : (
-        <Target />
-      )}
-    </>
-  );
+  if (score === 0 && !dataUser) {
+    return (
+      <>
+        <Hero>
+          <Form />
+        </Hero>
+      </>
+    );
+  } else if (score === 0 && dataUser) {
+    return <Poll />;
+  } else {
+    return <Target />;
+  }
 };

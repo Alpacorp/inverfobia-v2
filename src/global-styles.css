@@ -47,7 +47,7 @@
 }
 
 html {
-  background-color: #061923;
+  background-color: var(--dark-bg-color);
   box-sizing: border-box;
   color: var(--white-color);
   scroll-behavior: smooth;

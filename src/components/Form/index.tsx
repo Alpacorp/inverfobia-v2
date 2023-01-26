@@ -105,29 +105,21 @@ export const Form: FC = () => {
     e.preventDefault();
     handleChangeCaptcha();
 
-    if (!validatePhone(phone)) {
-      alert("❌ Por favor ingresa un número de celular válido 📲");
-      return;
-    }
-
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
     if (captchaStatus) {
       handleCreateContact(e);
       setDataUser(true);
     } else {
       return;
     }
+
+    if (!validatePhone(phone)) {
+      alert("❌ Por favor ingresa un número de celular válido 📲");
+      return;
+    }
   };
 
   return (
     <>
-      <Loading
-        open={loading}
-        text="Estamos validando la información registrada ✅"
-      />
       {dataUserSend ? (
         <>
           <Cta>
@@ -204,7 +196,7 @@ export const Form: FC = () => {
                 size={detectedDevice === "mobile" ? "compact" : "normal"}
               />
             </div>
-            <Button type="button" text="Enviar" />
+            <Button type="button" text="EMPIEZA TU TEST" />
           </form>
         </section>
       )}

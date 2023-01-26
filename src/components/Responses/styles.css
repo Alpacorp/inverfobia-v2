@@ -1,7 +1,7 @@
 .responses {
   align-items: center;
   display: grid;
-  height: 100vh;
+  height: 90vh;
   margin: 20px 0;
   text-align: center;
 }
@@ -9,12 +9,13 @@
 .responses .container {
   border-image: linear-gradient(180deg, rgba(14,16,255,1) 22%, rgba(71,219,248,1) 100%) 1;
   border-left: 3px solid var(--blue-color);
+  column-gap: 80px;
   display: grid;
-  gap: 80px;
   grid-template-columns: auto auto;
   justify-content: center;
   margin: 0 80px;
   padding: 0 140px;
+  row-gap: 10px;
 }
 
 @media screen and (max-width: 980px) {
