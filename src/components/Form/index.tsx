@@ -105,15 +105,15 @@ export const Form: FC = () => {
     e.preventDefault();
     handleChangeCaptcha();
 
+    if (!validatePhone(phone)) {
+      alert("❌ Por favor ingresa un número de celular válido 📲");
+      return;
+    }
+
     if (captchaStatus) {
       handleCreateContact(e);
       setDataUser(true);
     } else {
-      return;
-    }
-
-    if (!validatePhone(phone)) {
-      alert("❌ Por favor ingresa un número de celular válido 📲");
       return;
     }
   };
