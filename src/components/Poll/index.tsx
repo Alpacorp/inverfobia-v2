@@ -1,4 +1,4 @@
-import { FC, useContext } from "react";
+import { FC, useContext, useEffect } from "react";
 
 import ScoreContext from "../../context/ScoreContext";
 
@@ -33,6 +33,17 @@ export const Poll: FC = () => {
     e.preventDefault();
     setScore(total);
   };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   return (
     <section id="poll" className="form">
