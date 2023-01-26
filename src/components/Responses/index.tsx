@@ -3,10 +3,13 @@ import { FC, useContext, useEffect, useState } from "react";
 import ScoreContext from "../../context/ScoreContext";
 
 import { Fondos, Home, Pesos, Trading } from "../../assets/icons/";
+
 import { CardResponse } from "../CardResponse";
 import { Button } from "../Button";
 import { Loading } from "../Loading";
 import { Cta } from "../Cta";
+
+import { scrollTo } from "../../utils/";
 
 import "../../components/component-styles.css";
 import "./styles.css";
@@ -52,19 +55,12 @@ export const Responses: FC = () => {
     }
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 3000);
 
-    scrollToTop();
+    scrollTo();
     validatePesos();
     validateFondos();
     validateTrading();

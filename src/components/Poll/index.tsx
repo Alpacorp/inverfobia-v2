@@ -4,7 +4,8 @@ import ScoreContext from "../../context/ScoreContext";
 
 import { questions } from "../../db/questions/questions.json";
 
-import { sumRadioValues } from "../../utils";
+import { sumRadioValues, scrollTo } from "../../utils";
+
 import { Button } from "../Button";
 
 import "../../components/component-styles.css";
@@ -34,15 +35,8 @@ export const Poll: FC = () => {
     setScore(total);
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   useEffect(() => {
-    scrollToTop();
+    scrollTo();
   }, []);
 
   return (
