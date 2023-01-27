@@ -42,12 +42,10 @@ export const Poll: FC = () => {
   return (
     <section id="poll" className="form">
       <div className="container title">
-        <div className="">
-          <p>
-            Todo listo. Estás a unas preguntas de{" "}
-            <span className="highlight-yellow">encontrar la cura</span>
-          </p>
-        </div>
+        <h2>
+          Todo listo. Estás a unas preguntas de{" "}
+          <span className="highlight-yellow">encontrar la cura</span>
+        </h2>
       </div>
       <form onSubmit={handleSubmitPoll}>
         <div className="container">

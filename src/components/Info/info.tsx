@@ -10,15 +10,14 @@ export const Info: FC = () => {
         <div>
           <div className="content">
             <p>
-              <strong>Es el miedo a invertir que paraliza tu dinero </strong>
+              <strong>
+                La Inverfobia es el miedo a invertir que paraliza tu dinero{" "}
+              </strong>
               sin importar estado financiero, género, ni edad.
             </p>
             <p>
-              <strong>
-                Es un padecimiento silencioso presente en nuestro día a día
-              </strong>{" "}
-              que se manifiesta de múltiples formas y ataca a millones de
-              mexicanos.
+              Es un padecimiento silencioso presente en nuestro día a día que se
+              manifiesta de múltiples formas y ataca a millones de mexicanos.
             </p>
             <p>
               <strong className="highlight-yellow">

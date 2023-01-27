@@ -88,7 +88,7 @@ export const Form: FC = () => {
         res.status === 200 &&
           !res.data.message.code &&
           alert(
-            `Hola ${firstname} ${lastname}, tu registro fue exitoso ✅ diligencia la encuesta para curarte de la Inverfobia.`
+            `Hola ${firstname} ${lastname}, tu registro está completo y los expertos ya te esperan. Vamos al test y superemos la inverfobia.`
           );
         setDataUserSend(true);
       })
@@ -132,12 +132,10 @@ export const Form: FC = () => {
         <section id="form" className="form">
           <form onSubmit={handleSubmit}>
             <div className="form-title">
-              <p>
-                <span>
-                  Regístrate y haz tu test para descubrir qué tipo de{" "}
-                  <strong>Inverfobia</strong> tienes
-                </span>
-              </p>
+              <h2>
+                Regístrate y haz tu test para descubrir qué tipo de{" "}
+                <span className="highlight-white">Inverfobia</span> tienes
+              </h2>
             </div>
             <div className="data-inputs">
               <input
