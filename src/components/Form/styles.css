@@ -136,10 +136,11 @@ input::placeholder {
     padding: 0 30px;
   }
 
-  .form .form-title {
-    font-size: 15px;
+  .form .form-title h2, .form .form-title span {
+    font-size: 20px;
+    line-height: 1;
     margin-top: 40px;
-    max-width: 300px;
+    max-width: 280px;
   }
 
   .container .input {
