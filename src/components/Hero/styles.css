@@ -79,6 +79,11 @@
 }
 
 @media screen and (max-width: 400px) {
+  .hero .main-message {
+    height: 100vh;
+    justify-content: center;
+  }
+
   .main-message h1 {
     font-size: 40px;
   }
