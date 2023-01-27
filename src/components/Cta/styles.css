@@ -19,3 +19,9 @@
   background-color: var(--yellow-color);
   color: var(--white-color);
 }
+
+@media screen and (min-width: 550px) {
+  .cta {
+    display: none;
+  }
+}

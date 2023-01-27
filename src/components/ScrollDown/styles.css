@@ -1,20 +1,25 @@
 .scroll-down {
   animation: scroll-down 2s infinite;
+  line-height: 1;
   margin: auto;
+  max-width: 400px;
   text-align: center;
+  width: 100%;
 }
 
 .scroll-down strong {
   color: var(--blue-light-color);
-  font-size: 23px;
-  font-weight: 500;
+  font-family: 'Neue DemiBold';
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
   margin-bottom: 10px;
 }
 
 .scroll-down svg {
   color: var(--blue-color);
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
 }
 
 @keyframes scroll-down {
@@ -30,11 +35,8 @@
 }
 
 @media screen and (max-width: 500px) {
-  .scroll-down {
-    margin-top: 30px;
-  }
-
   .scroll-down strong {
-    font-size: 18px;
+    font-size: 14px;
+    margin: 0 5px;
   }
 }
