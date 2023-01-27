@@ -1,7 +1,7 @@
 .hero {
   align-items: center;
   display: grid;
-  height: 90vh;
+  height: 100vh;
   margin: auto;
   background-image: url(../../assets/images/background-hero.png);
   background-size: contain;
@@ -36,6 +36,7 @@
   color: transparent;
   line-height: 1;
   font-size: 80px;
+  margin-bottom: 40px;
 }
 
 @media screen and (max-height: 600px) {
