@@ -88,7 +88,7 @@ export const Form: FC = () => {
         res.status === 200 &&
           !res.data.message.code &&
           alert(
-            `Hola ${firstname} ${lastname}, tu registro está completo y los expertos ya te esperan. Vamos al test y superemos la inverfobia.`
+            `Hola ${firstname} ${lastname}, tu registro de datos personales está completo y los expertos ya te esperan. Vamos al test y superemos la inverfobia.`
           );
         setDataUserSend(true);
       })
