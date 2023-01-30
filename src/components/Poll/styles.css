@@ -14,6 +14,41 @@
   width: 100%;
 }
 
+hr {
+  border: none;
+  border-bottom: 1px solid var(--yellow-light-color);
+}
+
+.subquestions {
+  margin-left: 10px;
+}
+
+.subquestions hr {
+  border: none;
+  border-bottom: 1px solid var(--blue-color);
+  margin: 10px 0;
+}
+
+.subquestion-content {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.subquestion-title {
+  font-family: 'Neue DemiBold';
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.subquestion-options > * {
+  cursor: pointer;
+}
+
+.subquestion-options:hover > label {
+  color: var(--blue-color);
+}
+
 @media screen and (max-width: 400px) {
   .form .container.title {
     font-size: 16px;
