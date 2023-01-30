@@ -6,7 +6,6 @@
   border-image: linear-gradient(180deg, rgba(14,16,255,1) 22%, rgba(71,219,248,1) 100%) 1;
   border-left: 3px solid var(--blue-color);
   display: grid;
-  gap: 50px;
   justify-content: center;
   margin: 40px 80px;
 }

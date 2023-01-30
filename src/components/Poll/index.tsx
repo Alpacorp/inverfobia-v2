@@ -69,7 +69,7 @@ export const Poll: FC = () => {
         <div className="container">
           {questions.map((question: QuestionProps) => {
             return (
-              <>
+              <div key={question.id}>
                 <hr />
                 <div className="question-content" key={question.id}>
                   <h4 className="question-title">{question.title}</h4>
@@ -137,7 +137,7 @@ export const Poll: FC = () => {
                     })}
                   </div>
                 </div>
-              </>
+              </div>
             );
           })}
         </div>
