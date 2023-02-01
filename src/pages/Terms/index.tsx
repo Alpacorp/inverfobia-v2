@@ -315,7 +315,7 @@ export const Terms = () => {
           aplicables de la Ley.
         </p>
         <div className="terms-button">
-          <Button type="link" text="Volver" link="/" target="_self" />
+          <Button type="link" text="Volver" link="/" />
         </div>
       </div>
     </section>

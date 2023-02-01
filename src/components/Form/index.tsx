@@ -187,7 +187,7 @@ export const Form: FC = () => {
               <div className="terms">
                 <input type="checkbox" name="terms" id="terms" required />
                 <label htmlFor="terms">
-                  Acepta la <Link to="/terminos">política de privacidad</Link>
+                  Acepta la <Link to={"/terminos"}>política de privacidad</Link>
                 </label>
               </div>
               <ReCAPTCHA
