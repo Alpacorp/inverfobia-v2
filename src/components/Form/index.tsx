@@ -133,7 +133,10 @@ export const Form: FC = () => {
           <form onSubmit={handleSubmit}>
             <div className="form-title">
               <h2>
-                Regístrate y haz tu test para descubrir qué tipo de{" "}
+                <span className="highlight-yellow">
+                  Regístrate y haz tu test
+                </span>{" "}
+                para descubrir qué tipo de{" "}
                 <span className="highlight-white">Inverfobia</span> tienes
               </h2>
             </div>
