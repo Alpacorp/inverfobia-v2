@@ -1,6 +1,6 @@
 import { FC, useContext, useEffect } from "react";
 
-import { typeDevice } from "../../utils/typeDevice";
+import { typeDevice } from "../../utils";
 
 import ScoreContext from "../../context/ScoreContext";
 

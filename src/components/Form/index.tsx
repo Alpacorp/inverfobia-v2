@@ -16,6 +16,7 @@ import { capitalize, validatePhone } from "../../utils";
 
 import "../../components/component-styles.css";
 import "./styles.css";
+import { Link } from "react-router-dom";
 
 export const Form: FC = () => {
   const { setDataUser, detectedDevice } = useContext(ScoreContext);
@@ -186,10 +187,7 @@ export const Form: FC = () => {
               <div className="terms">
                 <input type="checkbox" name="terms" id="terms" required />
                 <label htmlFor="terms">
-                  Acepta la{" "}
-                  <a href="/terminos" target="_blank">
-                    política de privacidad
-                  </a>
+                  Acepta la <Link to="/terminos">política de privacidad</Link>
                 </label>
               </div>
               <ReCAPTCHA
