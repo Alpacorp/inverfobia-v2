@@ -10,7 +10,8 @@
 }
 
 .terms-button {
-  margin: 30px auto;
+  position: sticky;
+  bottom: 0;
 }
 
 @media screen and (max-width: 500px) {
