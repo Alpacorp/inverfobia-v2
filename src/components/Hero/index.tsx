@@ -23,9 +23,11 @@ export const Hero: FC<HeroProps> = ({ children }) => {
             </h1>
             <Info />
           </div>
-          <Cta>
-            <ScrollDown />
-          </Cta>
+          {/* <div>
+            <Cta>
+              <ScrollDown />
+            </Cta>
+          </div> */}
           <div>{children}</div>
         </div>
       </aside>

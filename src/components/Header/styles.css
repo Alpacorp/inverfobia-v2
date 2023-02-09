@@ -1,9 +1,9 @@
 .header {
-  background: linear-gradient(90deg, rgba(14,16,255,1) 22%, rgba(71,219,248,1) 100%);
-  background: rgb(14,16,255);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  /* background: linear-gradient(90deg, rgba(14,16,255,1) 22%, rgba(71,219,248,1) 100%);
+  background: rgb(14,16,255); */
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
   left: 0;
-  position: sticky;
+  /* position: sticky; */
   right: 0;
   top: 0;
   transition: all 0.2s ease-in-out;
@@ -15,27 +15,18 @@
   display: flex;
   justify-content: space-between;
   margin: auto;
-  padding: 20px 50px;
-}
-
-.nav h2 {
-  font-family: var(--senary-font);
-  font-size: 30px;
-  font-weight: 500;
-  margin: auto;
-  padding: 0 30px;
-}
-
-.nav span {
-  font-family: var(--senary-font);
-  font-size: 30px;
-  font-weight: 500;
+  padding: 5px 70px;
 }
 
 .nav a {
   color: var(--white-color);
   text-decoration: none;
   transition: all 0.2s ease-in-out;
+}
+
+.nav a img {
+  width: 200px;
+  height: auto;
 }
 
 .link-logo:hover {

@@ -1,3 +1,2 @@
-import saveMoney from "./inverfobia-image.png";
-
-export { saveMoney };
+export { default as finamexLogo } from "./logo-finamex.png";
+export { default as finamexLogoDark } from "./logo-finamex-dark.png";

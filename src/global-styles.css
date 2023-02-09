@@ -47,11 +47,31 @@
 }
 
 html {
-  background-color: var(--dark-bg-color);
+  background-color: #aec6d1de;
   box-sizing: border-box;
   color: var(--white-color);
   scroll-behavior: smooth;
 }
+
+body {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 110%;
+  background-position: 250% center;
+}
+
+.background-overlay {
+  background-color: #011b27de;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    background-image: none !important;
+  }
+}
+
 
 :root {
   --black-color: #000;
