@@ -1,4 +1,5 @@
 import { FC, useRef, useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRollbar } from "@rollbar/react";
 
@@ -10,20 +11,17 @@ import { useForm } from "../../hooks/useForm";
 import { Button } from "../Button";
 import { Cta } from "../Cta";
 import { ScrollDown } from "../ScrollDown";
-import { Loading } from "../Loading";
 
 import { capitalize, validatePhone } from "../../utils";
 
 import "../../components/component-styles.css";
 import "./styles.css";
-import { Link } from "react-router-dom";
 
 export const Form: FC = () => {
-  const { setDataUser, detectedDevice } = useContext(ScoreContext);
+  const { setInfoUser, setDataUser, detectedDevice } = useContext(ScoreContext);
 
   const [captchaStatus, setCaptchaStatus] = useState<Boolean>(false);
   const [dataUserSend, setDataUserSend] = useState<Boolean>(false);
-  const [loading, setLoading] = useState<Boolean>(false);
   const recaptchaRef: React.MutableRefObject<ReCAPTCHA | undefined> = useRef<
     ReCAPTCHA | undefined
   >();
@@ -31,12 +29,12 @@ export const Form: FC = () => {
   const rollbar = useRollbar();
 
   const [formValues, handleInputChange, reset] = useForm({
-    company: "Inverfobia",
-    email: "",
     firstname: "",
     lastname: "",
     phone: "",
+    email: "",
     website: "https://inverfobia.com",
+    company: "Inverfobia",
   });
 
   const { email, firstname, lastname, phone } = formValues;
@@ -92,6 +90,15 @@ export const Form: FC = () => {
             `Hola ${firstname} ${lastname}, tu registro de datos personales está completo y los expertos ya te esperan. Vamos al test y superemos la inverfobia.`
           );
         setDataUserSend(true);
+        setInfoUser({
+          firstname: capitalize(firstname),
+          lastname: capitalize(lastname),
+          phone,
+          email,
+          website: "https://inverfobia.com",
+          company: "Inverfobia",
+          id: res.data.message.id,
+        });
       })
       .catch((err) => {
         console.log("err ❌", err);
