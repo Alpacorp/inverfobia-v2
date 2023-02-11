@@ -2,6 +2,7 @@ import { FC, useContext, useEffect, useState } from "react";
 
 import ScoreContext from "../../context/ScoreContext";
 
+import { apiUpdateContact } from "../../apis/updateContact";
 import { questions } from "../../db/questions/questions.json";
 
 import { sumRadioValues, scrollTo } from "../../utils";
@@ -28,15 +29,28 @@ export interface OptionsProps {
 }
 
 export const Poll: FC = () => {
-  const { setScore } = useContext(ScoreContext);
+  const { infoUser, setScore } = useContext(ScoreContext);
   const [selectedQuestion, setSelectedQuestion] = useState<string>("");
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [show, setShow] = useState<Boolean>(false);
+  const { total } = sumRadioValues();
 
   const handleSubmitPoll = (e: React.FormEvent<HTMLFormElement>) => {
-    const { total } = sumRadioValues();
     e.preventDefault();
     setScore(total);
+
+    apiUpdateContact.patch(
+      "/hubspot/contact",
+      {
+        ...infoUser,
+        scoreinv: total,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
   };
 
   const handleShow = (): void => {
@@ -94,7 +108,7 @@ export const Poll: FC = () => {
                               option?.subquestions?.map(
                                 (subquestion: QuestionProps) => {
                                   return (
-                                    <>
+                                    <div key={subquestion.id}>
                                       <hr />
                                       <div
                                         className="subquestion-content"
@@ -127,7 +141,7 @@ export const Poll: FC = () => {
                                           )}
                                         </div>
                                       </div>
-                                    </>
+                                    </div>
                                   );
                                 }
                               )}
