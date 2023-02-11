@@ -11,12 +11,15 @@ const ScoreContext = createContext({
   setDataUser: (dataUser: boolean) => {},
   detectedDevice: "",
   setDetectedDevice: (detectedDevice: string) => {},
+  infoUser: {},
+  setInfoUser: (infoUser: {}) => {},
 });
 
 export const ScoreProvider = ({ children }: ScoreProviderProps) => {
   const [score, setScore] = useState(0);
   const [dataUser, setDataUser] = useState(false);
   const [detectedDevice, setDetectedDevice] = useState("");
+  const [infoUser, setInfoUser] = useState({});
 
   return (
     <ScoreContext.Provider
@@ -27,6 +30,8 @@ export const ScoreProvider = ({ children }: ScoreProviderProps) => {
         setDataUser,
         setDetectedDevice,
         setScore,
+        infoUser,
+        setInfoUser,
       }}
     >
       {children}
