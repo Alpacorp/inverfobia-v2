@@ -48,7 +48,7 @@ export const Responses: FC = () => {
   };
 
   const validateHome = () => {
-    if (score === 9) {
+    if (score === 10) {
       setHome(true);
     } else {
       setHome(false);
