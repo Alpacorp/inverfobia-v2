@@ -4,7 +4,7 @@ import "./styles.css";
 
 export const ScrollDown: FC = () => {
   return (
-    <div className="scroll-down">
+    <div className="scroll-down" title="Desliza para hacer tu test">
       <strong>Desliza para hacer tu test</strong>
       <div title="Scroll down">
         <svg
@@ -15,6 +15,7 @@ export const ScrollDown: FC = () => {
           stroke="currentColor"
           className="w-6 h-6"
         >
+          <title>Desplázate</title>
           <path
             strokeLinecap="round"
             strokeLinejoin="round"

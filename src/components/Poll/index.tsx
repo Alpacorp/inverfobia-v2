@@ -102,7 +102,9 @@ export const Poll: FC = () => {
                             value={option.value}
                             required
                           />
-                          <label htmlFor={option.id}>{option.option}</label>
+                          <label htmlFor={option.id} title={option.option}>
+                            {option.option}
+                          </label>
                           <div className="subquestions">
                             {show &&
                               option?.subquestions?.map(

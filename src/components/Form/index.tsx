@@ -158,6 +158,8 @@ export const Form: FC = () => {
                 placeholder="Nombre(s)"
                 required
                 type="text"
+                aria-label="Nombre(s)"
+                title="Nombre(s)"
                 value={capitalize(firstname)}
               />
               <input
@@ -169,6 +171,8 @@ export const Form: FC = () => {
                 placeholder="Apellido(s)"
                 required
                 type="text"
+                aria-label="Apellido(s)"
+                title="Apellido(s)"
                 value={capitalize(lastname)}
               />
               <input
@@ -179,6 +183,8 @@ export const Form: FC = () => {
                 placeholder="Número telefónico"
                 required
                 type="number"
+                aria-label="Número telefónico"
+                title="Número telefónico"
                 value={phone}
               />
               <input
@@ -189,12 +195,17 @@ export const Form: FC = () => {
                 placeholder="Correo electrónico"
                 required
                 type="email"
+                aria-label="Correo electrónico"
+                title="Correo electrónico"
                 value={email}
               />
               <div className="terms">
                 <input type="checkbox" name="terms" id="terms" required />
                 <label htmlFor="terms">
-                  Acepta la <Link to={"/terminos"}>política de privacidad</Link>
+                  Acepta la{" "}
+                  <Link to={"/terminos"} title="política de privacidad">
+                    política de privacidad
+                  </Link>
                 </label>
               </div>
               <ReCAPTCHA
