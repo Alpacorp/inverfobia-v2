@@ -8,7 +8,7 @@ import { Hero } from "../../components/Hero";
 import { Poll } from "../../components/Poll";
 import { Loading } from "../../components/Loading";
 
-import { typeDevice } from "../../utils";
+import { scrollTo, typeDevice } from "../../utils";
 
 import "../../global-styles.css";
 
@@ -17,6 +17,7 @@ export const App: FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    scrollTo();
     setDetectedDevice(typeDevice());
     setTimeout(() => {
       setLoading(false);
