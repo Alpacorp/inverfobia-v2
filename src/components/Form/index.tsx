@@ -96,7 +96,7 @@ export const Form: FC = () => {
           phone,
           email,
           website: "https://inverfobia.com",
-          company: "Inverfobia",
+          company: "Inverfobia - V2",
           id: res.data.message.id,
         });
       })
