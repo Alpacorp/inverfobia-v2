@@ -37,7 +37,7 @@ export const Form: FC = () => {
     company: "Inverfobia - V2",
   });
 
-  const { email, firstname, lastname, phone } = formValues;
+  const { email, firstname, lastname, phone, website, company } = formValues;
 
   const handleChangeCaptcha = () => {
     const recaptchaValue = recaptchaRef?.current?.getValue();
@@ -95,8 +95,8 @@ export const Form: FC = () => {
           lastname: capitalize(lastname),
           phone,
           email,
-          website: "https://inverfobia.com",
-          company: "Inverfobia - V2",
+          website,
+          company,
           id: res.data.message.id,
         });
       })
