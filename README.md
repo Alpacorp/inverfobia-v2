@@ -1,4 +1,4 @@
-# Inverfobia V1
+# Inverfobia V2
 
 ## Tecnologías usadas y versiones
 
